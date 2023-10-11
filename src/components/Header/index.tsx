@@ -3,9 +3,15 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 import { useState } from "react";
 
+interface Assignment{
+  assignmentId: number
+  assignmentName: string,
+  completed: boolean
+}
+
 interface Props {
-  assignmentList: any,
-  setAssignmentList: any
+  assignmentList: Assignment[],
+  setAssignmentList: (newAssignmentList: Assignment[]) => void
 }
 
 export function Header(props: Props) {
@@ -20,7 +26,7 @@ export function Header(props: Props) {
       setBtnStatus(true)
     }
   }
-  function addAssignment(e: any) {
+  function addAssignment(e: React.FormEvent) {
     const newAssignment = {
       assignmentId: props.assignmentList.length === 0 ? 1 : props.assignmentList[props.assignmentList.length - 1].assignmentId + 1,
       assignmentName: newAssignmentName,
@@ -30,6 +36,7 @@ export function Header(props: Props) {
     props.setAssignmentList(newAssignmentList)
     e.preventDefault()
     setNewAssignmentName("")
+    setBtnStatus(true)
   }
 
   return (

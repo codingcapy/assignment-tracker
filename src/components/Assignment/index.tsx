@@ -6,8 +6,8 @@ interface Props {
   assignmentId: number
   assignmentName: string,
   completed: boolean
-  deleteAssignment: any
-  completeAssignment: any
+  deleteAssignment: (assignmentId: number) => void;
+  completeAssignment: (assignmentId: number) => void;
 }
 
 export function Assignment(props: Props) {
