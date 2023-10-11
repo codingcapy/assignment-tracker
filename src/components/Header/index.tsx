@@ -30,6 +30,7 @@ export function Header(props: Props) {
     const newAssignmentList = [...props.assignmentList, newAssignment]
     props.setAssignmentList(newAssignmentList)
     e.preventDefault()
+    setNewAssignmentName("")
   }
 
   return (
@@ -37,7 +38,7 @@ export function Header(props: Props) {
       {/* This is simply to show you how to use helper functions */}
       <h1>{uppercase("bcit")} Assignment Tracker</h1>
       <form className={styles.newAssignmentForm} onSubmit={addAssignment}>
-        <input placeholder="Add a new assignment" type="text" onChange={updateAssignmentName} />
+        <input placeholder="Add a new assignment" type="text" onChange={updateAssignmentName} value={newAssignmentName} />
         <button disabled={btnStatus} >
           Create <AiOutlinePlusCircle size={20} />
         </button>
