@@ -5,11 +5,9 @@ interface Props {
   assignmentList: any,
   setAssignmentList: any
   deleteAssignment: any
-  completeAssignment:any
-  completedAssignments: any
-  updateCompleted: any
-  completedState:any
-  setCompletedState:any
+  completeAssignment: any
+  completedState: any
+  setCompletedState: any
 }
 
 export function Assignments(props: Props) {
@@ -23,12 +21,12 @@ export function Assignments(props: Props) {
 
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
-          <span>{props.completedAssignments} of {props.assignmentList.length}</span>
+          <span>{props.assignmentList.filter((assignment: any) => assignment.completed).length} of {props.assignmentList.length}</span>
         </div>
       </header>
 
       <div className={styles.list}>
-        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} completedState={props.completedState} setCompletedState={props.setCompletedState} updateCompleted={props.updateCompleted} />)}
+        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} completedState={props.completedState} setCompletedState={props.setCompletedState} />)}
       </div>
     </section>
   );

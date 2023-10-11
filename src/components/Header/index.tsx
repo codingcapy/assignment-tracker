@@ -6,7 +6,7 @@ import { useState } from "react";
 interface Props {
   assignmentList: any,
   setAssignmentList: any
-  completedState:any
+  completedState: any
 }
 
 export function Header(props: Props) {

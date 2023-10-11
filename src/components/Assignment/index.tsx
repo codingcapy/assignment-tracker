@@ -10,7 +10,6 @@ interface Props {
   completeAssignment: any
   completedState: any
   setCompletedState: any
-  updateCompleted: any
 }
 
 export function Assignment(props: Props) {
@@ -18,7 +17,6 @@ export function Assignment(props: Props) {
     <div className={styles.assignment}>
       <button className={styles.checkContainer} onClick={() => {
         props.completeAssignment(props.assignmentId)
-        props.updateCompleted()
       }}>
         <div>{props.completed && <BsFillCheckCircleFill />}</div>
       </button>
@@ -27,7 +25,6 @@ export function Assignment(props: Props) {
 
       <button className={styles.deleteButton} onClick={() => {
         props.deleteAssignment(props.assignmentId)
-        props.updateCompleted()
       }}>
         <TbTrash size={20} />
       </button>
