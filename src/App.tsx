@@ -6,7 +6,6 @@ const assignmentsArray: any[] = [];
 
 function App() {
   const [assignmentList, setAssignmentList] = useState<any>(assignmentsArray);
-  const [completedState, setCompletedState] = useState(false)
 
   function deleteAssignment(assignmentId: number) {
     const newAssignmentList = assignmentList.filter((assignment: any) => assignment.assignmentId !== assignmentId)
@@ -14,8 +13,11 @@ function App() {
   }
   function completeAssignment(assignmentId: number) {
     setAssignmentList(assignmentList.map((assignment: any) => {
-      if (assignment.assignmentId === assignmentId) {
-        return { ...assignment, completed: !completedState }
+      if (assignment.assignmentId === assignmentId && !assignment.completed) {
+        return { ...assignment, completed: true }
+      }
+      else if (assignment.assignmentId === assignmentId && assignment.completed) {
+        return { ...assignment, completed: false }
       }
       else {
         return assignment
@@ -25,8 +27,8 @@ function App() {
 
   return (
     <>
-      <Header assignmentList={assignmentList} setAssignmentList={setAssignmentList} completedState={completedState} />
-      <Assignments assignmentList={assignmentList} setAssignmentList={setAssignmentList} deleteAssignment={deleteAssignment} completeAssignment={completeAssignment} completedState={completedState} setCompletedState={setCompletedState} />
+      <Header assignmentList={assignmentList} setAssignmentList={setAssignmentList} />
+      <Assignments assignmentList={assignmentList} setAssignmentList={setAssignmentList} deleteAssignment={deleteAssignment} completeAssignment={completeAssignment} />
     </>
   );
 }

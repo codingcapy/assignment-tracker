@@ -6,8 +6,6 @@ interface Props {
   setAssignmentList: any
   deleteAssignment: any
   completeAssignment: any
-  completedState: any
-  setCompletedState: any
 }
 
 export function Assignments(props: Props) {
@@ -26,7 +24,7 @@ export function Assignments(props: Props) {
       </header>
 
       <div className={styles.list}>
-        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} completedState={props.completedState} setCompletedState={props.setCompletedState} />)}
+        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} />)}
       </div>
     </section>
   );

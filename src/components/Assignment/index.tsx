@@ -8,8 +8,6 @@ interface Props {
   completed: boolean
   deleteAssignment: any
   completeAssignment: any
-  completedState: any
-  setCompletedState: any
 }
 
 export function Assignment(props: Props) {
