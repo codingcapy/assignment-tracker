@@ -2,9 +2,7 @@ import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 import { useState } from "react";
 
-const assignmentsArray: any[] = [
-  { assignmentId: 1, assignmentName: "First Assignment", completed: false }
-];
+const assignmentsArray: any[] = [];
 
 function App() {
   const [assignmentList, setAssignmentList] = useState<any>(assignmentsArray);
@@ -26,19 +24,14 @@ function App() {
     }))
   }
   function updateCompleted() {
-    let count = 0
-    assignmentList.forEach((assignment: any) => {
-      if (assignment.completed) {
-        count++
-      }
-    })
+    const count = (assignmentList.filter((assignment: any) => assignment.completed)).length
     setCompletedAssignments(count)
   }
 
   return (
     <>
-      <Header assignmentList={assignmentList} setAssignmentList={setAssignmentList} />
-      <Assignments assignmentList={assignmentList} setAssignmentList={setAssignmentList} completedAssignments={completedAssignments} deleteAssignment={deleteAssignment} completeAssignment={completeAssignment} completedState={completedState} updateCompleted={updateCompleted} />
+      <Header assignmentList={assignmentList} setAssignmentList={setAssignmentList} completedState={completedState} />
+      <Assignments assignmentList={assignmentList} setAssignmentList={setAssignmentList} completedAssignments={completedAssignments} deleteAssignment={deleteAssignment} completeAssignment={completeAssignment} completedState={completedState} setCompletedState={setCompletedState} updateCompleted={updateCompleted} />
     </>
   );
 }

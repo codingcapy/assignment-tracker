@@ -4,11 +4,12 @@ import styles from "./assignments.module.css";
 interface Props {
   assignmentList: any,
   setAssignmentList: any
-  updateCompleted: any
-  completedAssignments: any
   deleteAssignment: any
   completeAssignment:any
+  completedAssignments: any
+  updateCompleted: any
   completedState:any
+  setCompletedState:any
 }
 
 export function Assignments(props: Props) {
@@ -27,7 +28,7 @@ export function Assignments(props: Props) {
       </header>
 
       <div className={styles.list}>
-        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} completedState={props.completedState} updateCompleted={props.updateCompleted} />)}
+        {props.assignmentList.map((assignment: any) => <Assignment key={assignment.assignmentId} assignmentId={assignment.assignmentId} assignmentName={assignment.assignmentName} completed={assignment.completed} deleteAssignment={props.deleteAssignment} completeAssignment={props.completeAssignment} completedState={props.completedState} setCompletedState={props.setCompletedState} updateCompleted={props.updateCompleted} />)}
       </div>
     </section>
   );
