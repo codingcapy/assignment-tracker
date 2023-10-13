@@ -52,3 +52,11 @@
   color: #262626;
   cursor: default;
 }
+
+.calendar {
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #8284fa;
+  border-radius: 8px;
+}
