@@ -22,7 +22,7 @@ function App() {
 
   function updateAssignmentName(event: React.ChangeEvent<HTMLInputElement>) {
     setNewAssignmentName(event.target.value);
-    if (newAssignmentName !== "" && selected !== undefined) {
+    if (selected !== undefined) {
       setBtnStatus(false);
     } else {
       setBtnStatus(true);
@@ -69,6 +69,14 @@ function App() {
       })
     );
   }
+  function selectDate(date: Date){
+    setSelected(date);
+    if (newAssignmentName !== "") {
+      setBtnStatus(false);
+    } else {
+      setBtnStatus(true);
+    }
+  }
 
   return (
     <>
@@ -83,6 +91,7 @@ function App() {
         setSelected={setSelected}
         clickedDate={clickedDate}
         setClickedDate={setClickedDate}
+        selectDate={selectDate}
       />
       <Assignments
         assignmentList={assignmentList}

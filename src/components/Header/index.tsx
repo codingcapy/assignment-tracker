@@ -14,6 +14,7 @@ interface Props {
   setSelected: any
   clickedDate: boolean
   setClickedDate: (clickedDate: boolean) => void
+  selectDate:(date:Date)=>void
 }
 
 export function Header(props: Props) {
@@ -35,7 +36,7 @@ export function Header(props: Props) {
           <FiCalendar size={25} />
         </div>
         {props.clickedDate && (
-          <props.DayPicker mode="single" selected={props.selected} onSelect={props.setSelected} />
+          <props.DayPicker mode="single" selected={props.selected} onSelect={props.selectDate} />
         )}
         <button disabled={props.btnStatus}>
           Create <AiOutlinePlusCircle size={20} />
