@@ -44,7 +44,6 @@ function App() {
     e.preventDefault();
     setNewAssignmentName("");
     setBtnStatus(true);
-    setClickedDate(false);
     setSelected(undefined);
   }
   function deleteAssignment(assignmentId: number) {
@@ -76,6 +75,7 @@ function App() {
     } else {
       setBtnStatus(true);
     }
+    setClickedDate(false);
   }
 
   return (
