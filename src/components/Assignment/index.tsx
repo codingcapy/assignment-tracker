@@ -8,6 +8,8 @@ interface Props {
   completed: boolean;
   deleteAssignment: (assignmentId: number) => void;
   completeAssignment: (assignmentId: number) => void;
+  dueDate: number | Date | undefined
+  format: any
 }
 
 export function Assignment(props: Props) {
@@ -21,11 +23,10 @@ export function Assignment(props: Props) {
       >
         <div>{props.completed && <BsFillCheckCircleFill />}</div>
       </button>
-
       <p className={props.completed ? styles.textCompleted : ""}>
         {props.assignmentName}
       </p>
-
+      <div className={styles.dueDate}>Due: {props.format(props.dueDate, 'PP')}</div>
       <button
         className={styles.deleteButton}
         onClick={() => {
