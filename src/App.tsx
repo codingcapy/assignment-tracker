@@ -22,10 +22,10 @@ function App() {
 
   function updateAssignmentName(event: React.ChangeEvent<HTMLInputElement>) {
     setNewAssignmentName(event.target.value);
-    if (event.target.value !== "" && selected !== undefined) { 
-      setBtnStatus(false); 
+    if (newAssignmentName !== "" && selected !== undefined) {
+      setBtnStatus(false);
     } else {
-      setBtnStatus(true); 
+      setBtnStatus(true);
     }
   }
   function addAssignment(e: React.FormEvent) {
@@ -34,7 +34,7 @@ function App() {
         assignmentList.length === 0
           ? 1
           : assignmentList[assignmentList.length - 1].assignmentId +
-            1,
+          1,
       assignmentName: newAssignmentName,
       completed: false,
       dueDate: selected,
@@ -77,8 +77,6 @@ function App() {
         newAssignmentName={newAssignmentName}
         updateAssignmentName={updateAssignmentName}
         addAssignment={addAssignment}
-        assignmentList={assignmentList}
-        setAssignmentList={setAssignmentList}
         DayPicker={DayPicker}
         format={format}
         selected={selected}

@@ -3,26 +3,17 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 import { FiCalendar } from "react-icons/fi";
 
-interface Assignment {
-  assignmentId: number;
-  assignmentName: string;
-  completed: boolean;
-  dueDate: number | Date | undefined;
-}
-
 interface Props {
-  btnStatus:boolean
-  newAssignmentName:string
-  updateAssignmentName:(event: React.ChangeEvent<HTMLInputElement>)=>void
-  addAssignment:(e: React.FormEvent)=>void
-  assignmentList: Assignment[];
-  setAssignmentList: (newAssignmentList: Assignment[]) => void;
-  DayPicker:any
-  format:any
-  selected:any
-  setSelected:any
-  clickedDate:boolean
-  setClickedDate:(clickedDate:boolean)=>void
+  btnStatus: boolean
+  newAssignmentName: string
+  updateAssignmentName: (event: React.ChangeEvent<HTMLInputElement>) => void
+  addAssignment: (e: React.FormEvent) => void
+  DayPicker: any
+  format: any
+  selected: any
+  setSelected: any
+  clickedDate: boolean
+  setClickedDate: (clickedDate: boolean) => void
 }
 
 export function Header(props: Props) {

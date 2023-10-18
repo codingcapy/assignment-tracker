@@ -13,7 +13,7 @@ interface Props {
   setAssignmentList: (newAssignmentList: Assignment[]) => void;
   deleteAssignment: (assignmentId: number) => void;
   completeAssignment: (assignmentId: number) => void;
-  format:any
+  format: any
 }
 
 export function Assignments(props: Props) {
