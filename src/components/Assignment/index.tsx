@@ -9,7 +9,6 @@ interface Props {
   deleteAssignment: (assignmentId: number) => void;
   completeAssignment: (assignmentId: number) => void;
   dueDate: number | Date | undefined
-  format: any
 }
 
 export function Assignment(props: Props) {
@@ -23,10 +22,10 @@ export function Assignment(props: Props) {
     if (daysDiff > 1) {
       dueDateString = `${daysDiff} days`
     }
-    else if (daysDiff === 1){
+    else if (daysDiff === 1) {
       dueDateString = `${daysDiff} day`
     }
-    else if (daysDiff === 0){
+    else if (daysDiff === 0) {
       dueDateString = `Today`
     }
     else {
@@ -46,7 +45,7 @@ export function Assignment(props: Props) {
       <p className={props.completed ? styles.textCompleted : ""}>
         {props.assignmentName}
       </p>
-      <div className={daysDiff > 1 ? styles.dueDate: styles.urgentDue}>Due: {dueDateString}</div>
+      <div className={daysDiff > 1 ? styles.dueDate : styles.urgentDue}>Due: {dueDateString}</div>
       <button
         className={styles.deleteButton}
         onClick={() => {

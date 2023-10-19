@@ -2,7 +2,6 @@ import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
-import { format } from "date-fns";
 
 const assignmentsArray: Assignment[] = [];
 
@@ -68,7 +67,7 @@ function App() {
       })
     );
   }
-  function selectDate(date: Date){
+  function selectDate(date: Date) {
     setSelected(date);
     if (newAssignmentName !== "") {
       setBtnStatus(false);
@@ -86,19 +85,15 @@ function App() {
         updateAssignmentName={updateAssignmentName}
         addAssignment={addAssignment}
         DayPicker={DayPicker}
-        format={format}
         selected={selected}
-        setSelected={setSelected}
         clickedDate={clickedDate}
         setClickedDate={setClickedDate}
         selectDate={selectDate}
       />
       <Assignments
         assignmentList={assignmentList}
-        setAssignmentList={setAssignmentList}
         deleteAssignment={deleteAssignment}
         completeAssignment={completeAssignment}
-        format={format}
       />
     </>
   );

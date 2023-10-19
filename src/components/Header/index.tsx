@@ -2,19 +2,18 @@ import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";
 import { FiCalendar } from "react-icons/fi";
+import { DayPickerProps } from "react-day-picker";
 
 interface Props {
-  btnStatus: boolean
-  newAssignmentName: string
-  updateAssignmentName: (event: React.ChangeEvent<HTMLInputElement>) => void
-  addAssignment: (e: React.FormEvent) => void
-  DayPicker: any
-  format: any
-  selected: any
-  setSelected: any
-  clickedDate: boolean
-  setClickedDate: (clickedDate: boolean) => void
-  selectDate:(date:Date)=>void
+  btnStatus: boolean;
+  newAssignmentName: string;
+  updateAssignmentName: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  addAssignment: (e: React.FormEvent) => void;
+  DayPicker: React.ComponentType<DayPickerProps>;
+  selected: Date | undefined;
+  clickedDate: boolean;
+  setClickedDate: (clickedDate: boolean) => void;
+  selectDate: (date: Date) => void;
 }
 
 export function Header(props: Props) {
@@ -36,7 +35,7 @@ export function Header(props: Props) {
           <FiCalendar size={25} />
         </div>
         {props.clickedDate && (
-          <props.DayPicker mode="single" selected={props.selected} onSelect={props.selectDate} />
+          <props.DayPicker mode="single" selected={props.selected} onSelect={(date) => props.selectDate(date as Date)} />
         )}
         <button disabled={props.btnStatus}>
           Create <AiOutlinePlusCircle size={20} />
