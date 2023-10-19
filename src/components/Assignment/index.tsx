@@ -26,6 +26,9 @@ export function Assignment(props: Props) {
     else if (daysDiff === 1){
       dueDateString = `${daysDiff} day`
     }
+    else if (daysDiff === 0){
+      dueDateString = `Today`
+    }
     else {
       dueDateString = 'Past Due'
     }
