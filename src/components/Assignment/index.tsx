@@ -13,6 +13,23 @@ interface Props {
 }
 
 export function Assignment(props: Props) {
+  const currentDate = new Date()
+  const dueDate = props.dueDate ? new Date(props.dueDate) : null
+  let dueDateString = ''
+  let daysDiff = 0
+  if (dueDate) {
+    const timeDiff = dueDate?.getTime() - currentDate.getTime()
+    daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24))
+    if (daysDiff > 1) {
+      dueDateString = `${daysDiff} days`
+    }
+    else if (daysDiff === 1){
+      dueDateString = `${daysDiff} day`
+    }
+    else {
+      dueDateString = 'Past Due'
+    }
+  }
   return (
     <div className={styles.assignment}>
       <button
@@ -26,7 +43,7 @@ export function Assignment(props: Props) {
       <p className={props.completed ? styles.textCompleted : ""}>
         {props.assignmentName}
       </p>
-      <div className={styles.dueDate}>Due: {props.format(props.dueDate, 'PP')}</div>
+      <div className={daysDiff > 1 ? styles.dueDate: styles.urgentDue}>Due: {dueDateString}</div>
       <button
         className={styles.deleteButton}
         onClick={() => {

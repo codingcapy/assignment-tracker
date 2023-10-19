@@ -54,3 +54,10 @@ p.textCompleted {
   margin: 0;
   border-radius: 10px;
 }
+
+.urgentDue{
+  background-color: brown;
+  padding: 7px;
+  margin: 0;
+  border-radius: 10px;
+}
