@@ -1,3 +1,10 @@
+/*
+Author: Paul Kim A01273049
+Date: October 18, 2023
+Version: 1.0
+Description: COMP 3013 Assignment Tracker Assignment Component
+*/
+
 import styles from "./assignment.module.css";
 import { TbTrash } from "react-icons/tb";
 import { BsFillCheckCircleFill } from "react-icons/bs";
@@ -32,6 +39,7 @@ export function Assignment(props: Props) {
       dueDateString = 'Past Due'
     }
   }
+
   return (
     <div className={styles.assignment}>
       <button

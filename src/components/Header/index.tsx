@@ -1,3 +1,10 @@
+/*
+Author: Paul Kim A01273049
+Date: October 18, 2023
+Version: 1.0
+Description: COMP 3013 Assignment Tracker Header Component
+*/
+
 import styles from "./header.module.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { uppercase } from "../../helpers/stringHelpers";

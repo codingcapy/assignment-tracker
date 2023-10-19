@@ -1,3 +1,10 @@
+/*
+Author: Paul Kim A01273049
+Date: October 18, 2023
+Version: 1.0
+Description: COMP 3013 Assignment Tracker Assignments Component
+*/
+
 import { Assignment } from "../Assignment";
 import styles from "./assignments.module.css";
 
@@ -22,7 +29,6 @@ export function Assignments(props: Props) {
           <p>Created Assignments</p>
           <span>{props.assignmentList.length}</span>
         </div>
-
         <div>
           <p className={styles.textPurple}>Completed Assignments</p>
           <span>
@@ -34,7 +40,6 @@ export function Assignments(props: Props) {
           </span>
         </div>
       </header>
-
       <div className={styles.list}>
         {props.assignmentList.map((assignment) => (
           <Assignment

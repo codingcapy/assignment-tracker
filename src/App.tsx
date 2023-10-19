@@ -1,3 +1,10 @@
+/*
+Author: Paul Kim A01273049
+Date: October 18, 2023
+Version: 1.0
+Description: COMP 3013 Assignment Tracker App Component
+*/
+
 import { Header } from "./components/Header";
 import { Assignments } from "./components/Assignments";
 import { useState } from "react";
